@@ -17,15 +17,14 @@ r = redis.StrictRedis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=True) #
 @app.route('/')
 def index():
     """Serve the main garden interaction page."""
-    # You could potentially fetch some *very basic* state here if needed later,
-    # but for now, just render the template with buttons.
     return render_template('index.html')
 
 @app.route('/action', methods=['POST'])
 def perform_action():
     """Handle button clicks and send action to Redis."""
+    print("hello")
     action_type = request.form.get('action') # Get the value from the clicked button
-
+    
     if action_type:
         print(f"Received action: {action_type}. Sending to Redis queue: {REDIS_QUEUE_NAME}")
         try:
