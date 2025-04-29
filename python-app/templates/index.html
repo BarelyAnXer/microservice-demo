@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friendship Garden</title>
+    <style>
+        /* Basic styling for 'nice and cute' feel */
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f0f8f0; /* Light green background */
+        }
+        .garden-container {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px dashed #a0c0a0; /* Dashed border */
+            width: 80%;
+            max-width: 500px;
+            background-color: #ffffff; /* White box */
+            border-radius: 10px;
+        }
+        h1 {
+            color: #556b2f; /* Dark olive green */
+        }
+        .action-buttons button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .action-buttons button:hover {
+            opacity: 0.9;
+        }
+        .water-btn {
+            background-color: #b0e0e6; /* Powder blue */
+            color: #000000;
+        }
+        .sunshine-btn {
+            background-color: #ffebcd; /* Blanched almond */
+            color: #000000;
+        }
+         .result-link {
+             margin-top: 20px;
+             display: block;
+         }
+    </style>
+</head>
+<body>
+    <div class="garden-container">
+        <h1>Our Friendship Garden</h1>
+        <p>Send some care to the garden!</p>
+
+        <form action="{{ url_for('perform_action') }}" method="post" class="action-buttons">
+            <button type="submit" name="action" value="water" class="water-btn">💧 Water the Flowers</button>
+            <button type="submit" name="action" value="sunshine" class="sunshine-btn">☀️ Add Sunshine</button>
+        </form>
+
+        <p class="result-link">
+             View Garden Status: <a href="http://localhost:_____" target="_blank">Click Here</a>
+             (Replace _____ with the Node.js frontend port, likely 5001 or 8080)
+        </p>
+
+    </div>
+</body>
+</html>
